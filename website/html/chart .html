@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VGuard - Parking Occupancy Chart</title>
+    <link rel="stylesheet" href="./css-myweb/myweb.css">
+    <link rel="stylesheet" href="./bootstrap-5.3.3-dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="container mt-5">
+        <h2>Parking Occupancy Chart</h2>
+        <canvas id="occupancyChart" width="400" height="400"></canvas>
+        <a class="btn btn-secondary mt-4" href="occupancy-report.html" role="button">Back to Report</a>
+    </div>
+    <script>
+        const ctx = document.getElementById('occupancyChart').getContext('2d');
+        const occupancyChart = new Chart(ctx, {
+            type: 'pie',
+            data: {
+                labels: ['Occupied Lots', 'Available Lots'],
+                datasets: [{
+                    label: 'Parking Occupancy',
+                    data: [80, 20], // Example data: 80 occupied, 20 available
+                    backgroundColor: [
+                        'rgba(54, 162, 235, 0.6)', // Occupied Lots
+                        'rgba(75, 192, 192, 0.6)'  // Available Lots
+                    ],
+                    borderColor: [
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(75, 192, 192, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        position: 'top',
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                let label = context.label || '';
+                                if (label) {
+                                    label += ': ';
+                                }
+                                label += context.raw;
+                                return label + ' lots';
+                            }
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+    <script src="./bootstrap-5.3.3-dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+
+

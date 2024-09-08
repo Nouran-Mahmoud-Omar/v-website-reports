@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>P3</title>
+    <link rel="stylesheet" href="./css-myweb/myweb.css">
+    <link rel="stylesheet" href="./bootstrap-5.3.3-dist/css/bootstrap.min.css">
+</head>
+<body>
+    <h1>VGuard</h1>
+
+    <div class="d-flex flex-wrap gap-2 mb-3">
+
+        <div class="btn-group">
+            <button type="button" class="btn btn-danger dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                Number of Visits
+            </button>
+            <ul class="dropdown-menu p-3">
+                <li>
+                    <label for="visitsRange" class="form-label">Number of Visits: <span id="visitsValue">10</span></label>
+                    <input type="range" class="form-range" min="0" max="20" value="10" id="visitsRange" oninput="updateVisitsValue(this.value)">
+                </li>
+            </ul>
+        </div>
+
+        <div class="btn-group">
+            <button type="button" class="btn btn-danger dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                Vehicle Type
+            </button>
+            <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">All Vehicles</a></li>
+                <li><a class="dropdown-item" href="#">Vans</a></li>
+                <li><a class="dropdown-item" href="#">Cars</a></li>
+                <li><a class="dropdown-item" href="#">Trucks</a></li>
+                <li><a class="dropdown-item" href="#">Motorcycles</a></li>
+            </ul>
+        </div>
+
+        <div class="btn-group">
+            <button type="button" class="btn btn-danger dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                Date Range
+            </button>
+            <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">Last 24 Hours</a></li>
+                <li><a class="dropdown-item" href="#">Last 7 Days</a></li>
+                <li><a class="dropdown-item" href="#">Last 30 Days</a></li>
+                <li><a class="dropdown-item" href="#">Custom Range</a></li>
+            </ul>
+        </div>
+
+        <div class="btn-group">
+            <button type="button" class="btn btn-danger dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                Time of Day
+            </button>
+            <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">All Day</a></li>
+                <li><a class="dropdown-item" href="#">Morning (6 AM - 12 PM)</a></li>
+                <li><a class="dropdown-item" href="#">Afternoon (12 PM - 6 PM)</a></li>
+                <li><a class="dropdown-item" href="#">Evening (6 PM - 12 AM)</a></li>
+            </ul>
+        </div>
+
+        <div class="btn-group">
+            <button type="button" class="btn btn-danger dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                License Plate
+            </button>
+            <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">Exact Match</a></li>
+                <li><a class="dropdown-item" href="#">Partial Match</a></li>
+            </ul>
+        </div>
+
+        <div class="btn-group">
+            <button type="button" class="btn btn-danger dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                Park Time
+            </button>
+            <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">All Durations</a></li>
+                <li><a class="dropdown-item" href="#">Short-Term (0-2 hours)</a></li>
+                <li><a class="dropdown-item" href="#">Long-Term (6+ hours)</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <a class="btn btn-primary" href="table.html" role="button">Show Table</a>
+
+    <script src="./bootstrap-5.3.3-dist/js/bootstrap.bundle.min.js"></script>
+    <script src="./myweb.js"></script>
+    <script>
+        function updateVisitsValue(value) {
+            document.getElementById('visitsValue').textContent = value;
+        }
+    </script>
+</body>
+</html>
